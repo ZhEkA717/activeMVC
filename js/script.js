@@ -127,10 +127,12 @@ function LocalStorage(save) {
     };
 
     this.getLoc = function (man) {
-        let manSaved = JSON.parse(localStorage[this.save]);
-        man.posX = manSaved.posX;
-        man.posY = manSaved.posY;
-        man.isRun = manSaved.isRun;
+        if (localStorage[this.save] != null) {
+            let manSaved = JSON.parse(localStorage[this.save]);
+            man.posX = manSaved.posX;
+            man.posY = manSaved.posY;
+            man.isRun = manSaved.isRun;
+        }
     };
 }
 
